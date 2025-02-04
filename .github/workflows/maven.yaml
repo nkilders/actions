@@ -28,3 +28,19 @@ jobs:
                   cache: maven
             - name: Build with Maven
               run: mvn -B package --file pom.xml
+
+    test1:
+        runs-on: ubuntu-latest
+        needs: build
+        steps:
+            - run: echo "Starting test 1"
+            - run: sleep 5
+            - run: echo "Finished test 1"
+
+    test2:
+        runs-on: ubuntu-latest
+        needs: build
+        steps:
+            - run: echo "Starting test 2"
+            - run: sleep 5
+            - run: echo "Finished test 2"
