@@ -44,3 +44,11 @@ jobs:
             - run: echo "Starting test 2"
             - run: sleep 5
             - run: echo "Finished test 2"
+
+    release:
+        runs-on: ubuntu-latest
+        needs: [test1, test2]
+        steps:
+            - run: echo "Starting release"
+            - run: sleep 5
+            - run: echo "Finished release"
