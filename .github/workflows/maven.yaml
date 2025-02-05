@@ -44,11 +44,8 @@ jobs:
               uses: actions/download-artifact@v4
               with:
                   name: app
-            - run: |
-                  ls -la
-                  pwd
-                  echo $PATH || true
-                  which java || true
+            - name: Run app
+              run: java -jar app.jar
 
     test2:
         runs-on: ubuntu-latest
