@@ -61,3 +61,11 @@ jobs:
         with:
             value_to_log: 'Release'
             log_twice: true
+
+    finalize:
+        needs: release
+        runs-on: ubuntu-latest
+        steps:
+            - uses: nkilders/custom-action@main
+              with:
+                  milliseconds: 4711
