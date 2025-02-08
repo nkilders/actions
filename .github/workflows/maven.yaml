@@ -50,20 +50,14 @@ jobs:
               run: java -jar app.jar
 
     test2:
-        runs-on: ubuntu-latest
         needs: build
-        steps:
-            - name: Log test
-              uses: nkilders/actions/.github/workflows/reusable-log.yaml@main
-              with:
-                  value_to_log: 'Test'
+        uses: nkilders/actions/.github/workflows/reusable-log.yaml@main
+        with:
+            value_to_log: 'Test'
 
     release:
-        runs-on: ubuntu-latest
         needs: [test1, test2]
-        steps:
-            - name: Log release
-              uses: nkilders/actions/.github/workflows/reusable-log.yaml@main
-              with:
-                  value_to_log: 'Release'
-                  log_twice: true
+        uses: nkilders/actions/.github/workflows/reusable-log.yaml@main
+        with:
+            value_to_log: 'Release'
+            log_twice: true
