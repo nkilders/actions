@@ -1,0 +1,24 @@
+name: Reusable Log
+
+on:
+    workflow_call:
+        inputs:
+            value_to_log:
+                description: 'The value to log'
+                required: true
+                type: string
+            log_twice:
+                description: 'Whether to log the value twice'
+                required: false
+                type: boolean
+                default: false
+
+jobs:
+    log_value:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Log value
+              run: echo "${{ inputs.value_to_log }}"
+            - name: Log value again
+              if: ${{ inputs.log_twice }}
+              run: echo "${{ inputs.value_to_log }}"
