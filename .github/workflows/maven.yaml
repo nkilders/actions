@@ -55,17 +55,17 @@ jobs:
         with:
             value_to_log: 'Test'
 
+    test3:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - uses: nkilders/custom-action@main
+              with:
+                  milliseconds: 4711
+
     release:
         needs: [test1, test2]
         uses: nkilders/actions/.github/workflows/reusable-log.yaml@main
         with:
             value_to_log: 'Release'
             log_twice: true
-
-    finalize:
-        needs: release
-        runs-on: ubuntu-latest
-        steps:
-            - uses: nkilders/custom-action@main
-              with:
-                  milliseconds: 4711
