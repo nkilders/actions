@@ -12,6 +12,14 @@ on:
                 required: false
                 type: boolean
                 default: false
+            useless_input:
+                description: 'This input is completely useless'
+                required: true
+                type: choice
+                options:
+                    - 0815
+                    - 4711
+                    - 1234
 
 jobs:
     log_value:
