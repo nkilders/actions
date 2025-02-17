@@ -1,4 +1,4 @@
-name: Reusable Log
+name: Dispatchable Log
 
 on:
     workflow_dispatch:
