@@ -36,7 +36,7 @@ jobs:
                   name: app
                   path: app.jar
 
-    test1:
+    test-artifact-download:
         needs: build
         runs-on: ubuntu-latest
         container:
@@ -49,13 +49,13 @@ jobs:
             - name: Run app
               run: java -jar app.jar
 
-    test2:
+    test-reusable:
         needs: build
         uses: nkilders/actions/.github/workflows/reusable-log.yaml@main
         with:
             value_to_log: 'Test'
 
-    test3:
+    test-custom:
         needs: build
         runs-on: ubuntu-latest
         steps:
@@ -64,7 +64,7 @@ jobs:
                   milliseconds: 4711
 
     release:
-        needs: [test1, test2]
+        needs: [test-artifact-download, test-reusable]
         uses: nkilders/actions/.github/workflows/reusable-log.yaml@main
         with:
             value_to_log: 'Release'
