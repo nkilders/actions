@@ -1,13 +1,11 @@
 name: GitHub CLI
 
 on:
-  push:
-    branches: ['*']
-  #pull_request:
-    #types:
-    #- opened
-    #branches:
-    #- main
+  pull_request:
+    types:
+    - opened
+    branches:
+    - main
 
 env:
   GH_TOKEN: ${{ github.token }}
@@ -20,6 +18,4 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Check GitHub CLI Version
-        run: gh version
       - run: gh pr comment ${{ github.event.number }} --body "Hello There"
