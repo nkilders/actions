@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v4
       - name: Check GitHub CLI Version
         run: gh version
       - run: gh pr comment ${{ github.event.number }} --body "Hello There"
