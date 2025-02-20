@@ -16,3 +16,4 @@ jobs:
     steps:
       - name: Check GitHub CLI Version
         run: gh version
+      - run: gh pr comment ${{ github.event.number }} --body "Hello There"
