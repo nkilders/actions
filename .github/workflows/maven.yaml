@@ -51,7 +51,7 @@ jobs:
 
     test-reusable:
         needs: build
-        uses: nkilders/actions/.github/workflows/reusable-log.yaml@main
+        uses: ./.github/workflows/reusable-log.yaml
         with:
             value_to_log: 'Test'
 
@@ -65,7 +65,7 @@ jobs:
 
     release:
         needs: [test-artifact-download, test-reusable]
-        uses: nkilders/actions/.github/workflows/reusable-log.yaml@main
+        uses: ./.github/workflows/reusable-log.yaml
         with:
             value_to_log: 'Release'
             log_twice: true
