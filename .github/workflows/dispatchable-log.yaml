@@ -1,4 +1,5 @@
 name: Dispatchable Log
+description: A workflow that logs a value passed as input and optionally logs it again.
 
 on:
     workflow_dispatch:

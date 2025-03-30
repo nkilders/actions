@@ -7,6 +7,7 @@
 # documentation.
 
 name: Java CI with Maven
+description: A workflow that builds a Java project with Maven, runs tests, and optionally releases the artifact.
 
 on:
     push:
